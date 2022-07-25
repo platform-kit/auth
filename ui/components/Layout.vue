@@ -14,10 +14,10 @@ export default {
 <style scoped>
 .layout {
   min-width: 100%;
-  background: linear-gradient(rgb(198, 223, 255), #fff);
+  background: linear-gradient(rgb(218 234 255), #fff);
 }
 
 .br-10 {
-  border-radius:10px;
+  border-radius: 10px;
 }
 </style>
