@@ -1,6 +1,8 @@
-# PlatformKit Auth
+<h1 align="center">PlatformKit Auth</h1>
 
+<p align="center">
 Open-Source, Self-Hosted, Standalone Authentication/Single Sign-On (SSO) Solution
+</p>
 
 **Connects with:** <br>
 
