@@ -136,6 +136,8 @@ GITHUB_CLIENT_SECRET=
 
 ## Integrating with your app / website
 
+### Iframe Method
+
 Embed the app in an iframe within your website/app. The end-user will go through the login flow entirely through the embedded endpoint. If the login is successful, the user will be redirected to a `/succcess` endpoint where the `token` and a `secret` are represented as the `t` and `s` URL query parameters.
 
 Example:
@@ -145,6 +147,22 @@ https://localhost:3000/success?t=abcdefg&s=1234567
 ```
 
 Using the Javascript framework/method of your choice, you can monitor the iframe for the presence of this information, and scrape it/close the iframe accordingly when it appears.
+
+### Redirect Method
+
+Say you have deployed an instance of `platform-kit/auth` to `https://auth.example.com` and you want to use it from a web app at `https://app.example.com`.
+
+First, make sure you have added the desired domain to the `ALLOWED_DOMAINS` environment variable, like so.
+
+```env
+ALLOWED_DOMAINS=https://app.example.com
+```
+
+Then in your app, create a login button that links to `https://auth.example.com?redirect=https://www.app.example.com`
+
+If the login attempt succeeds, the user will be redirected to the redirect url, with the login data in the URL query parameters:
+
+`https://app.example.com?t=abcdefg&s=1234567`
 
 ## Deployment
 
