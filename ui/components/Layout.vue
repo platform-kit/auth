@@ -14,7 +14,7 @@ export default {
 <style scoped>
 .layout {
   min-width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), #fff);
+  background: linear-gradient(rgb(198, 223, 255), #fff);
 }
 
 .br-10 {
