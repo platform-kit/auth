@@ -1,0 +1,40 @@
+{
+  "name": "pk-auth",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "dev": "node ./commands/dev/dev.js",
+    "preinstall": "(cd commands/prebuild && npm install); (cd ui && npm install);",
+    "prebuild": "node ./commands/prebuild/prebuild.js",
+    "build": "cd ./ui; npm run build",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@oclif/command": "^1.8.16",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
+    "express": "~4.16.1",
+    "express-http-proxy": "^1.6.3",
+    "express-session": "^1.17.3",
+    "http-errors": "~1.6.3",
+    "https": "^1.0.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "nodemailer": "^6.7.7",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "oclif": "^1.16.1",
+    "passport": "^0.6.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-magic-link": "^2.1.0",
+    "passport-pinterest": "^1.0.0",
+    "passport-pinterest-v5": "^1.0.2",
+    "passport-reddit": "^0.2.4",
+    "passport-twitter": "^1.0.4",
+    "uninstall": "0.0.0"
+  },
+  "files": []
+}

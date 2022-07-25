@@ -1,0 +1,16 @@
+spec:
+  name: platformkit-auth
+  services:
+  - name: web
+    git:
+      branch: main
+      repo_clone_url: https://github.com/platform-kit/auth
+    envs:    
+    - key: REPO
+    - key: UI_DIRECTORY
+    - key: BUILD_COMMAND      
+    - key: DATABASE_URL
+      scope: RUN_TIME
+      value: ${pk-auth-db.DATABASE_URL}
+  databases:
+  - name: pk-auth-db

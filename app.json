@@ -1,0 +1,41 @@
+{
+  "name": "platformkit-auth",
+  "description": "Self-Hosted, Standalone Authentication/Single Sign-On (SSO) Server.",
+  "keywords": [
+    "oauth",
+    "heroku",
+    "nodejs",
+    "express",
+    "passport",
+    "jwt",
+    "sso",
+    "single-sign-on"
+  ],
+  "repository": "https://github.com/platform-kit/auth",
+  "logo": "https://avatars3.githubusercontent.com/u/54647524?s=460&u=1cb7191699fb4c83946d962727cf4a15f498990b&v=4",
+  "addons": ["heroku-postgresql:hobby-basic", "heroku-redis", "scheduler"],
+  "scripts": {
+    "start": "npm run start"
+  },
+  "success_url": "/",
+  "env": {
+    "REPO": {
+      "required": false
+    },
+    "UI_DIRECTORY": {
+      "required": false
+    },
+    "BUILD_COMMAND": {
+      "required": false
+    },
+    "JWT_SECRET": {
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": "1"
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
