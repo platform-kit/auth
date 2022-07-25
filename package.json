@@ -6,7 +6,7 @@
     "dev": "node ./commands/dev/dev.js",
     "preinstall": "(cd commands/prebuild && npm install); (cd ui && npm install);",
     "prebuild": "node ./commands/prebuild/prebuild.js",
-    "build": "cd ./ui; npm run build",
+    "build": "cd ./ui; npm run build && npm run generate",
     "start": "node ./bin/www"
   },
   "dependencies": {
