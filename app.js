@@ -51,7 +51,7 @@ if (process.env.ENVIRONMENT == "development") {
     app.use("/", proxy("localhost:4000"));
   }
 } else {
-  app.use(express.static(path.join(__dirname, "ui/dist")));
+  app.use(express.static(path.join(__dirname, "./ui/dist")));
 }
 
 // Custom Statically Generated UI
