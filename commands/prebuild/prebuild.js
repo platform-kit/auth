@@ -7,11 +7,7 @@ var exec = require("child_process").exec;
 var dotenv = require("dotenv").config();
 
 (async () => {
-  var prefix = "http";
-  if (process.env.ENVIRONMENT == "development") {
-    prefix = "https";
-  }
-
+  
   // UI Dev Server
   var command = "ls";
   if (process.env.REPO != null && process.env.REPO != "") {
