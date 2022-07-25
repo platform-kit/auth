@@ -6,7 +6,7 @@ services:
   region: oregon 
   plan: starter 
   numInstances: 1
-  buildCommand: npm run preinstall; npm run prebuild;
+  buildCommand: npm run preinstall; npm run prebuild; rpm run build;
   startCommand: npm run start
   envVars:
   - key: REPO
