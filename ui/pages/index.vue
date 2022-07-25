@@ -318,7 +318,7 @@ export default {
 <style scoped>
 #layout {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f2faff, transparent);
+  
 }
 
 .icon-facebook {
