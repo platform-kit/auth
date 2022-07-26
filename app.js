@@ -46,11 +46,14 @@ if (process.env.REPO != null && process.env.REPO != "") {
 app.use("/", authRouter);
 if (process.env.ENVIRONMENT == "development") {
   if (process.env.DEV_PATH != null && process.env.DEV_PATH != "") {
+    console.log("Serving custom DEV UI: " + process.env.DEV_PATH);
     app.use("/", proxy(process.env.DEV_PATH));
   } else {
-    app.use("/", proxy("localhost:4000"));
+    console.log("Serving default DEV UI: http://localhost:4000");
+    app.use("/", proxy("http://localhost:4000"));
   }
 } else {
+  console.log("Serving default UI.");
   app.use(express.static(path.join(__dirname, "./ui/dist")));
 }
 

@@ -5,6 +5,7 @@ var TwitterStrategy = require("passport-twitter");
 var FacebookStrategy = require("passport-facebook");
 var MagicLinkStrategy = require("passport-magic-link").Strategy;
 var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var YoutubeV3Strategy = require("passport-youtube-v3").Strategy;
 var GitHubStrategy = require("passport-github2").Strategy;
 var PinterestStrategy = require("passport-pinterest-v5").Strategy;
 var RedditStrategy = require("passport-reddit").Strategy;
@@ -18,6 +19,7 @@ var features = {
   facebook: false,
   twitter: false,
   google: false,
+  youtube: false,
   github: false,
   pinterest: false,
   reddit: false,
@@ -51,6 +53,13 @@ if (
   process.env.GOOGLE_CLIENT_SECRET != null
 ) {
   features.google = true;
+}
+
+if (
+  process.env.YOUTUBE_CLIENT_ID != null &&
+  process.env.YOUTUBE_CLIENT_SECRET != null
+) {
+  features.youtube = true;
 }
 
 if (
@@ -323,6 +332,56 @@ if (features.google == true) {
     }
   );
 }
+
+//////////////////////////////////////////////////////////////////////////////////////// Google
+if (features.youtube == true) {
+  var youtubeScopes = ["https://www.googleapis.com/auth/youtube","https://www.googleapis.com/auth/youtube.readonly", "https://www.googleapis.com/auth/youtube.upload"]
+  if(process.env.YOUTUBE_SCOPES != null && process.env.YOUTUBE_SCOPES != ''){
+    youtubeScopes = process.env.YOUTUBE_SCOPES.split(',');
+  }
+
+  // YouTube Config
+  passport.use(
+    new YoutubeV3Strategy(
+      {
+        clientID: process.env.YOUTUBE_CLIENT_ID,
+        clientSecret: process.env.YOUTUBE_CLIENT_SECRET,
+        callbackURL: domain + "/auth/youtube/callback",
+        scope: youtubeScopes
+      },
+      function (accessToken, refreshToken, profile, cb) {
+        var data = {
+          token: accessToken,
+          refreshToken: refreshToken,
+          profile: profile,
+        };
+        // console.log(data);
+        return cb(null, data);
+      }
+    )
+  );
+  // Youtube Routes
+  router.get(
+    "/auth/youtube",
+    passport.authenticate("youtube")
+  );
+  router.get(
+    "/auth/youtube/callback",
+    passport.authenticate("youtube", { failureRedirect: "/login" }),
+    function (req, res) {
+      // Successful authentication, redirect home.
+      var token = req.user.token;
+      var refreshToken = req.user.refreshToken;
+      var queryString = "?t=" + encodeURIComponent(token);
+      /*
+       + "&r=" +
+      encodeURIComponent(refreshToken); 
+      */
+      return res.redirect("/success" + queryString);
+    }
+  );
+}
+
 //////////////////////////////////////////////////////////////////////////////////////// Pinterest
 if (features.pinterest == true) {
   // Pinterest Config

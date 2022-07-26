@@ -34,6 +34,7 @@
     "passport-pinterest-v5": "^1.0.2",
     "passport-reddit": "^0.2.4",
     "passport-twitter": "^1.0.4",
+    "passport-youtube-v3": "^2.1.0",
     "uninstall": "0.0.0"
   },
   "files": []

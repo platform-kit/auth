@@ -9,6 +9,7 @@ var features = {
   facebook: false,
   twitter: false,
   google: false,
+  youtube: false,
   github: false,
   pinterest: false,
   reddit: false,
@@ -42,6 +43,13 @@ if (
   process.env.GOOGLE_CLIENT_SECRET != null
 ) {
   features.google = true;
+}
+
+if (
+  process.env.YOUTUBE_CLIENT_ID != null &&
+  process.env.YOUTUBE_CLIENT_SECRET != null
+) {
+  features.youtube = true;
 }
 
 if (
