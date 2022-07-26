@@ -112,6 +112,11 @@ FACEBOOK_CLIENT_ID=
 FACEBOOK_APP_SECRET=
 FACEBOOK_SCOPES=email,pages_show_list,pages_read_engagement,instagram_content_publish,instagram_basic,pages_show_list
 
+# Instagram
+FACEBOOK_CLIENT_ID=
+FACEBOOK_APP_SECRET=
+FACEBOOK_SCOPES=email,pages_show_list,pages_read_engagement,instagram_content_publish,instagram_basic,pages_show_list
+
 # Twitter
 TWITTER_APP_ID=
 TWITTER_CONSUMER_API_KEY=
@@ -172,7 +177,7 @@ If the login attempt succeeds, the user will be redirected to the redirect url, 
 ### Embedded UI
 
 If you use a [static site generator](https://jamstack.org/generators/), you can deploy and serve your app directly on the same server as the `auth` instance.
-Simply provide the `REPO`, `BUILD_COMMAND , and `UI_DIRECTORY` environment variables. You will then be able to detect and capture the token without the need for redirects to another domain or subdomain.
+Simply provide the `REPO`, `BUILD_COMMAND`, and `UI_DIRECTORY` environment variables. You will then be able to detect and capture the token without the need for redirects to another domain or subdomain.
 
 ## Deployment
 
