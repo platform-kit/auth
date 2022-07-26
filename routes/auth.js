@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require("passport");
 var TwitterStrategy = require("passport-twitter");
 var FacebookStrategy = require("passport-facebook");
+var InstagramStrategy = require("passport-facebook");
 var MagicLinkStrategy = require("passport-magic-link").Strategy;
 var GoogleStrategy = require("passport-google-oauth20").Strategy;
 var YoutubeV3Strategy = require("passport-youtube-v3").Strategy;
@@ -17,6 +18,7 @@ var smtpTransport = require("nodemailer-smtp-transport");
 var features = {
   mail: false,
   facebook: false,
+  instagram: false,
   twitter: false,
   google: false,
   youtube: false,
@@ -39,6 +41,13 @@ if (
   process.env.FACEBOOK_CLIENT_ID != null
 ) {
   features.facebook = true;
+}
+
+if (
+  process.env.INSTAGRAM_APP_SECRET != null &&
+  process.env.INSTAGRAM_CLIENT_ID != null
+) {
+  features.instagram = true;
 }
 
 if (
@@ -81,6 +90,8 @@ if (
 ) {
   features.google = true;
 }
+
+console.log(features);
 
 // Passport Config
 passport.serializeUser(function (user, cb) {
@@ -222,6 +233,55 @@ if (features.facebook == true) {
     function (req, res) {
       // Successful authentication, redirect home.
       // console.log(req.user);
+      var token = req.user.token;
+      var secret = req.user.tokenSecret;
+      var queryString = "?t=" + encodeURIComponent(token);
+      return res.redirect("/success" + queryString);
+    }
+  );
+}
+
+//////////////////////////////////////////////////////////////////////////////////////// Instagram
+if (features.instagram == true) {
+  // Instagram Config
+  passport.use(
+    new InstagramStrategy(
+      {
+        clientID: process.env.INSTAGRAM_CLIENT_ID,
+        clientSecret: process.env.INSTAGRAM_APP_SECRET,
+        callbackURL: domain + "/auth/instagram/callback",
+      },
+      function (token, tokenSecret, profile, cb) {
+        var data = {
+          token: token,
+          tokenSecret: tokenSecret,
+          profile: profile,
+        };
+        //console.log(data);
+        return cb(null, data);
+      }
+    )
+  );
+  // Instagram Routes
+  var instagramScopes =
+    "email,pages_show_list,pages_read_engagement,instagram_content_publish,instagram_basic,pages_show_list";
+  if (
+    process.env.INSTAGRAM_SCOPES != null &&
+    process.env.INSTAGRAM_SCOPES != ""
+  ) {
+    instagramScopes = process.env.INSTAGRAM_SCOPES;
+  }
+  instagramScopes = instagramScopes.split(",");
+  router.get(
+    "/auth/instagram",
+    passport.authenticate("facebook", { scope: instagramScopes })
+  );
+  router.get(
+    "/auth/instagram/callback",
+    passport.authenticate("facebook", { failureRedirect: "/login" }),
+    function (req, res) {
+      // Successful authentication, redirect home.
+      console.log(req.user);
       var token = req.user.token;
       var secret = req.user.tokenSecret;
       var queryString = "?t=" + encodeURIComponent(token);

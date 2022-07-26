@@ -103,7 +103,7 @@
         </a>
         <a
           v-if="platforms.facebook == true"
-          href="/auth/facebook"
+          href="/auth/instagram"
           class="
             btn
             bg-white
