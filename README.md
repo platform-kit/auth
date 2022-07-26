@@ -19,13 +19,6 @@ Self-Hosted Authentication Server
 <img src="https://img.shields.io/badge/Pinterest-ebf5fb?style=for-the-badge&logo=Pinterest&logoColor=red"/>
 </p>
 
-**Works with:** <br>
-<p float="left">
-<img src="https://img.shields.io/badge/next.js-ebf5fb?style=for-the-badge&logo=nextdotjs&logoColor=000"/>
-<img src="https://img.shields.io/badge/nuxt.js-ebf5fb?style=for-the-badge&logo=nuxtdotjs"/>
-<img src="https://img.shields.io/badge/Laravel-ebf5fb?style=for-the-badge&logo=laravel"/>
-</p>
-
 **Built with:** <br>
 
 <p float="left">
@@ -33,6 +26,7 @@ Self-Hosted Authentication Server
 <img src="https://img.shields.io/badge/Express.js-ebf5fb?style=for-the-badge&logo=express&logoColor=000" />
 <img src="https://img.shields.io/badge/Passport.js-ebf5fb?style=for-the-badge&logo=passport" />
 <img src="https://img.shields.io/badge/Vue.js-ebf5fb?style=for-the-badge&logo=vuedotjs" />
+<img src="https://img.shields.io/badge/Nuxt-ebf5fb?style=for-the-badge&logo=nuxt.js"/>
 <img src="https://img.shields.io/badge/Bootstrap-ebf5fb?style=for-the-badge&logo=bootstrap"/>
 </p>
 
@@ -175,8 +169,13 @@ If the login attempt succeeds, the user will be redirected to the redirect url, 
 
 `https://app.example.com?t=abcdefg&s=1234567`
 
+### Embedded UI
+
+If you use a [static site generator](https://jamstack.org/generators/), you can deploy and serve your app directly on the same server as the `auth` instance.
+Simply provide the `REPO`, `BUILD_COMMAND , and `UI_DIRECTORY` environment variables. You will then be able to detect and capture the token without the need for redirects to another domain or subdomain.
+
 ## Deployment
 
 To deploy to the cloud, simply click one of the buttons below.
 
-<a href="https://render.com/deploy?repo=https://github.com/platform-kit/auth" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> </a> <a href="https://heroku.com/deploy?template=https://github.com/platform-kit/auth" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/auth/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a>
+<a href="https://render.com/deploy?repo=https://github.com/platform-kit/auth" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> <a href="https://heroku.com/deploy?template=https://github.com/platform-kit/auth" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/auth/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a>
