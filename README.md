@@ -49,8 +49,7 @@ Open-Source, Self-Hosted, Standalone Authentication/Single Sign-On (SSO) Solutio
 
 - Single Sign-On & passwordless login for any app or framework
 - Beautiful, minimal UI included out of the box
-- UI can be easily customized
-- Additional SSO platforms can be easily added
+- UI & API can be easily customized
 
 ## Local Development
 
@@ -69,7 +68,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  npm install && npm run preinstall && npm run prebuild
 ```
 
 Start the server
