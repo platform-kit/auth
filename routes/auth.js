@@ -98,7 +98,7 @@ if (
   process.env.REDDIT_APP_ID != null &&
   process.env.REDDIT_APP_SECRET != null
 ) {
-  features.google = true;
+  features.reddit = true;
 }
 
 console.log(features);
