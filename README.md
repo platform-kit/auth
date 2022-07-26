@@ -1,7 +1,7 @@
 <h1 align="center">PlatformKit Auth</h1>
 
 <p align="center">
-Self-Hosted Authentication Server
+Self-Hosted Authentication
 </p>
 
 <p align="center">Securely sign-in to over 500 platforms.</p>
