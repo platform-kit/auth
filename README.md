@@ -92,6 +92,8 @@ SESSION_SECRET=xxxxx
 
 # Branding
 LOGO=https://www.example.com/logo.png
+BYLINE=Auth by PlatformKit
+BYLINE_LINK=https://github.com/platform-kit/auth
 
 # Repository for custom UI/Routes
 REPO=https://www.github.com/{username}/{repo}
@@ -121,9 +123,17 @@ TWITTER_APP_ID=
 TWITTER_CONSUMER_API_KEY=
 TWITTER_CONSUMER_API_SECRET=
 
+# LinkedIn
+LINKEDIN_API_KEY=
+LINKEDIN_SECRET_KEY=
+
 # Google
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
+
+# Youtube
+YOUTUBE_CLIENT_ID=
+YOUTUBE_CLIENT_SECRET=
 
 # Pinterest 
 PINTEREST_APP_ID=
