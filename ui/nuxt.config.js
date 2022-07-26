@@ -118,7 +118,9 @@ export default {
     baseUrl: process.env.BASE_URL || "https://localhost:3000",
     logo: process.env.LOGO || "icon.png",
     features: features,
-    allowedDomains: allowedDomains
+    allowedDomains: allowedDomains,
+    byline: process.env.BYLINE,
+    bylineLink: process.env.BYLINE_LINK
   },
 
   fontAwesome: {

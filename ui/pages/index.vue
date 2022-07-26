@@ -219,8 +219,8 @@
             ><span class="opacity-50">Sign in with </span>GitHub</span
           >
         </a>
-        <span class="badge mt-3 text-small border footer-badge"
-          ><b-icon-lock class="mr-2"></b-icon-lock>Auth by PlatformKit</span
+        <a :href="bylineLink" class="badge mt-3 text-small border footer-badge"
+          ><b-icon-lock class="mr-2"></b-icon-lock>{{ byline }}</a
         >
       </div>
     </div>
@@ -280,10 +280,18 @@ export default {
       email: null,
       platforms: null,
       redirect: null,
+      byline: "Auth by PlatformKit",
+      bylineLink: null,
     };
   },
   async mounted() {
     this.platforms = process.env.features;
+    if (process.env.byline != null && process.env.byline != "") {
+      this.byline = process.env.byline;
+    }
+    if (process.env.bylineLink != null && process.env.bylineLink != "") {
+      this.bylineLink = process.env.bylineLink;
+    }
     console.log("Features Enabled: \n");
     console.log(process.env.features);
     const params = new URLSearchParams(window.location.search);
@@ -318,7 +326,6 @@ export default {
 <style scoped>
 #layout {
   min-height: 100vh;
-  
 }
 
 .icon-facebook {
