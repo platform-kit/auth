@@ -186,7 +186,9 @@ Simply provide the `REPO`, `BUILD_COMMAND`, and `UI_DIRECTORY` environment varia
 
 If you want to limit the options available to the user, simply pass a `platforms` parameter in the url.  For example, if you only wanted to show the user the Facebook button and the Instagram button, you'd add `platforms=facebook,instagram` - like so:
 
-`https://localhost:3000/?platforms=facebook,instagram`
+https://auth.platformkit.com/?platforms=mail,google,github
+
+https://auth.platformkit.com/?platforms=facebook,instagram,twitter,reddit,youtube,pinterest
 
 ## Deployment
 
