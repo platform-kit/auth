@@ -4,6 +4,9 @@
 Self-Hosted Authentication Server
 </p>
 
+<p align="center">Securely sign-in to over 500 platforms.</p>
+
+
 **Connects with:** <br>
 
 <p float="left">
