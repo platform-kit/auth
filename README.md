@@ -13,6 +13,7 @@ Self-Hosted Authentication Server
 <img src="https://img.shields.io/badge/Facebook-ebf5fb?style=for-the-badge&logo=facebook"/>
 <img src="https://img.shields.io/badge/Instagram-ebf5fb?style=for-the-badge&logo=instagram"/>
 <img src="https://img.shields.io/badge/Twitter-ebf5fb?style=for-the-badge&logo=twitter"/>
+<img src="https://img.shields.io/badge/LinkedIn-ebf5fb?style=for-the-badge&logo=linkedin&logoColor=326eb8"/>
 <img src="https://img.shields.io/badge/Youtube-ebf5fb?style=for-the-badge&logo=youtube&logoColor=red"/>
 <img src="https://img.shields.io/badge/Reddit-ebf5fb?style=for-the-badge&logo=reddit"/>
 <img src="https://img.shields.io/badge/Pinterest-ebf5fb?style=for-the-badge&logo=Pinterest&logoColor=red"/>

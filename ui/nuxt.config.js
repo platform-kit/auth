@@ -8,6 +8,7 @@ var features = {
   mail: false,
   facebook: false,
   twitter: false,
+  linkedin: false,
   google: false,
   youtube: false,
   github: false,
@@ -38,6 +39,14 @@ if (
 ) {
   features.twitter = true;
 }
+
+if (
+  process.env.LINKEDIN_API_KEY != null &&
+  process.env.LINKEDIN_SECRET_KEY != null
+) {
+  features.linkedin = true;
+}
+
 if (
   process.env.GOOGLE_CLIENT_ID != null &&
   process.env.GOOGLE_CLIENT_SECRET != null
