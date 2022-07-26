@@ -182,6 +182,12 @@ If the login attempt succeeds, the user will be redirected to the redirect url, 
 If you use a [static site generator](https://jamstack.org/generators/), you can deploy and serve your app directly on the same server as the `auth` instance.
 Simply provide the `REPO`, `BUILD_COMMAND`, and `UI_DIRECTORY` environment variables. You will then be able to detect and capture the token without the need for redirects to another domain or subdomain.
 
+### Dynamically enabling buttons
+
+If you want to limit the options available to the user, simply pass a `platforms` parameter in the url.  For example, if you only wanted to show the user the Facebook button and the Instagram button, you'd add `platforms=facebook,instagram` - like so:
+
+`https://localhost:3000/?platforms=facebook,instagram`
+
 ## Deployment
 
 To deploy to the cloud, simply click one of the buttons below.

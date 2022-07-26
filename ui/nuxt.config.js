@@ -33,6 +33,13 @@ if (
 }
 
 if (
+  process.env.INSTAGRAM_APP_SECRET != null &&
+  process.env.INSTAGRAM_CLIENT_ID != null
+) {
+  features.instagram = true;
+}
+
+if (
   process.env.TWITTER_APP_ID != null &&
   process.env.TWITTER_CONSUMER_API_KEY != null &&
   process.env.TWITTER_CONSUMER_API_SECRET != null

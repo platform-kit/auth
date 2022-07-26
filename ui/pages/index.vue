@@ -2,9 +2,9 @@
   <Layout id="layout" class="p-3">
     <div class="login-options text-center">
       <img :src="logo()" class="logo" />
-      <div v-if="platforms != null">
+      <div v-if="platforms != null && allowedPlatforms != null ">
         <a
-          v-if="platforms.mail == true"
+          v-if="platforms.mail == true && allowedPlatforms != null && allowedPlatforms.includes('mail')"
           v-b-modal.magic-link-modal
           class="
             btn
@@ -26,7 +26,7 @@
           >
         </a>
         <a
-          v-if="platforms.facebook == true"
+          v-if="platforms.facebook == true  && allowedPlatforms != null && allowedPlatforms.includes('facebook')"
           href="/auth/facebook"
           class="
             btn
@@ -48,7 +48,7 @@
           >
         </a>
         <a
-          v-if="platforms.linkedin == true"
+          v-if="platforms.linkedin == true  && allowedPlatforms != null && allowedPlatforms.includes('linkedin')"
           href="/auth/linkedin"
           class="
             btn
@@ -72,7 +72,7 @@
         </a>
 
         <a
-          v-if="platforms.dropbox == true"
+          v-if="platforms.dropbox == true  && allowedPlatforms != null && allowedPlatforms.includes('dropbox')"
           href="/auth/dropbox"
           class="btn bg-white btn-block border mb-2 btn-dropbox shadow-on-hover"
         >
@@ -87,7 +87,7 @@
           >
         </a>
         <a
-          v-if="platforms.twitter == true"
+          v-if="platforms.twitter == true  && allowedPlatforms != null && allowedPlatforms.includes('twitter')"
           href="/auth/twitter"
           class="btn bg-white btn-block border mb-2 btn-twitter shadow-on-hover"
         >
@@ -102,7 +102,7 @@
           >
         </a>
         <a
-          v-if="platforms.facebook == true"
+          v-if="platforms.instagram == true  && allowedPlatforms != null && allowedPlatforms.includes('instagram')"
           href="/auth/instagram"
           class="
             btn
@@ -124,7 +124,7 @@
           >
         </a>
         <a
-          v-if="platforms.google == true"
+          v-if="platforms.google == true  && allowedPlatforms != null && allowedPlatforms.includes('google')"
           href="/auth/google"
           class="btn bg-white btn-block border mb-2 btn-google shadow-on-hover"
         >
@@ -139,7 +139,7 @@
         </a>
 
         <a
-          v-if="platforms.reddit == true"
+          v-if="platforms.reddit == true  && allowedPlatforms != null && allowedPlatforms.includes('reddit')"
           href="/auth/reddit"
           class="
             btn
@@ -162,7 +162,7 @@
         </a>
 
         <a
-          v-if="platforms.youtube == true"
+          v-if="platforms.youtube == true  && allowedPlatforms != null && allowedPlatforms.includes('youtube')"
           href="/auth/youtube"
           class="
             btn
@@ -184,7 +184,7 @@
           >
         </a>
         <a
-          v-if="platforms.pinterest == true"
+          v-if="platforms.pinterest == true  && allowedPlatforms != null && allowedPlatforms.includes('pinterest')"
           href="/auth/pinterest"
           class="
             btn
@@ -206,7 +206,7 @@
           >
         </a>
         <a
-          v-if="platforms.github == true"
+          v-if="platforms.github == true  && allowedPlatforms != null && allowedPlatforms.includes('github')"
           href="/auth/github"
           class="btn bg-white btn-block border mb-2 btn-github shadow-on-hover"
         >
@@ -278,6 +278,9 @@ export default {
       status: "loading",
       redirect: null,
       email: null,
+      allowedPlatforms: [
+        "mail", "google", "github", "facebook", "instagram", "twitter", "linkedin", "youtube", "reddit", "pinterest"
+      ],
       platforms: null,
       redirect: null,
       byline: "Auth by PlatformKit",
@@ -285,7 +288,7 @@ export default {
     };
   },
   async mounted() {
-    this.platforms = process.env.features;
+    this.platforms = process.env.features;    
     if (process.env.byline != null && process.env.byline != "") {
       this.byline = process.env.byline;
     }
@@ -302,6 +305,11 @@ export default {
       ) {
         localStorage.setItem("redirect", this.redirect);
       }
+    }
+    if (params.has("platforms")) {
+      var allowedPlatforms = params.get("platforms");
+      allowedPlatforms = allowedPlatforms.split(",");
+      this.allowedPlatforms = allowedPlatforms;
     }
   },
   methods: {
